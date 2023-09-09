@@ -1,0 +1,22 @@
+{% extends "navigation.html" %}
+{% block content %}
+<h2>Welcome, {{ session['user'] }}!</h2>
+<h2><span style="color: red;">HOT</span> Products Today</h2>
+{% if popular_today %}
+<div class="row">
+  {% for product in popular_today %}
+  <div class="overlay-container col-md-4">
+    <a href="{{ url_for('descriptionPage', product_id=product.id) }}">
+      <img class="overlay-img" src="{{ product.image }}" alt="Image could not be loaded.">
+      <div class="overlay">
+        <h3>{{ product.name }}</h3>
+        <h3>${{ product.cost }}</h3>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<h3>No Recommendations for Today</h3>
+{% endif %}
+{% endblock %}

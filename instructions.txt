@@ -1,0 +1,28 @@
+Jun Kai Zhang 1008786253
+
+Description:
+The website is a shopping website designed for allowing users to purchase from a large catalog of products.
+The website keeps track of past transactions the user has made. If users are left satisfied or unsatisfied,
+they can leave a review under the product. Users are also given the option to upload their own products onto
+the website. The website also offers a daily selection of products on the home page, depending on the
+transactions that have occurred that day.
+
+
+To activate Virtual Environment:
+Open terminal and change directory to the file containing the project files
+Run the following in the terminal:
+
+```
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+Instructions:
+Before running the site, please run `python3 initialize.py` first to load some necessary and example data into our database.
+Wait until the terminal returns `Data successfully loaded.`.
+sample_data.txt contains some sample users that can be used for login.
+Please do not modify any of the txt files.
+
+To run the site:
+`python3 app.py`

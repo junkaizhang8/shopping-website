@@ -1,0 +1,26 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <p>Hello! What would you like to do today?</p>
+    <form action="/login" method="GET">
+        <input type="submit" value="Log In">
+    </form>
+    <p>New user?</p>
+    <form action="/signup" method="GET">
+        <input type="submit" value="Sign Up">
+    </form>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="flashed-msg">
+        {% for message in messages %}
+        <div class="alert alert-info"> {{ message }} </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+</body>
+
+</html>

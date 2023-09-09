@@ -1,0 +1,37 @@
+By default, should already have some stuff stored in database (products, test users, fake reviews, etc)
+
+User sign-up page
+    - username, password, country
+    - we can store list of countries in database and add drop down menu filtering countries based on user input
+    - (optional) two-step authentication
+
+We can try to do a forgot password / reset password
+    - to do this, we can let user choose to enable "two step authentication"
+    - authentication is a question only the user should know how to answer
+    - when setting up authentication, select random question from database
+    - store the question and answer to user info in database
+
+Allow user to put up reviews on products (ideally using clickable stars and written reviews)
+    - stars turn yellow up as you hover over them
+    - (maybe) stars light up proportional to rating (e.x. 3 and a half stars light up for 3.5 rating)
+        - otherwise just light up stars based on the floor of rating
+
+Heart a product to add it to favourites
+
+Allow user to add products to the site
+    - amount, cost
+    - (optional) product type
+        - entertainment, food, etc
+
+Allow user to add products to shopping cart
+
+Checkout page for checkout or maybe remove products
+
+Home page for HOT! products, popular products from your location, what the user may like based off of product type purchased
+
+(maybe) Receipt page for past purchases
+
+Shop page
+    - user can filter based on name, product type, rating
+    - if rating is unchecked, by default it sorts it by newest product
+    - each product shown has title beneath it as well as rating

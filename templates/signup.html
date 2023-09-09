@@ -1,0 +1,28 @@
+{% extends "simple-navbar.html" %} {% block content %}
+
+<script>
+  const listOfCountries = '{{ country_list|tojson }}';
+  const countries = JSON.parse(listOfCountries);
+</script>
+<h1>Register</h1>
+<form action="/signup" method="POST">
+  <label>Username:</label>
+  <input class="form-control" id="username" type="text" name="username" />
+  <label>Password:</label>
+  <input class="form-control" id="password" type="password" name="password" />
+  <label>Country:</label>
+  <input class="form-control" id="country" type="text" name="country" />
+  <ul class="list-group" id="countries"></ul>
+  <input class="btn btn-primary" type="submit" value="Sign Up" />
+</form>
+<p>Already have an account? <a href="/">Sign in -></a></p>
+{% with messages = get_flashed_messages() %} {% if messages %}
+<div class="flashed-msg">
+  {% for message in messages %}
+  <div class="alert alert-info">{{ message }}</div>
+  {% endfor %}
+</div>
+{% endif %} {% endwith %}
+<script src="{{ url_for('static', filename='signup.js') }}"></script>
+
+{% endblock %}

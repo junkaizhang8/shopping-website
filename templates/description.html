@@ -1,0 +1,70 @@
+{% extends "navigation.html" %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="flashed-msg">
+    {% for message in messages %}
+    <div class="alert alert-info"> {{ message }} </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<div class="row">
+    <img class="col-sm-6 description-img" src="{{ product_info.image }}" alt="Image could not be loaded.">
+    <div class="col-sm-6">
+      <h2>{{ product_info.name }}</h2>
+      <h3 class="price">${{ '%0.2f'|format(product_info.cost) }}</h3>
+      <h4 id="stock-remaining">Stock remaining: {{ product_info.stock_remaining }}</h4>
+      <br>
+      <form action="/add-to-cart" method="POST">
+        <div class="row">
+          <div class="col-xs-2">
+            <input class="btn btn-default square-btn" id="subtract" type="button" value="-">
+          </div>
+          <div class="col-xs-4">
+            <input class="form-control" id="amount" type="text" name="amount" value="1">
+          </div>
+          <div class="col-xs-2">
+            <input class="btn btn-default square-btn" id="add" type="button" value="+">
+          </div>
+        </div>
+        <br>
+        <input class="btn btn-primary" type="submit" value="Add to Cart">
+      </form>
+    </div>
+</div>
+
+<h2>Product Description</h2>
+<p>{{ product_info.description }}</p>
+<h2>Leave a Review</h2>
+<form action="/submit-review" method="POST">
+    <input id="rating" type="hidden" name="rating" value="{{ rating }}">
+    {% for i in range(rating) %}
+    <span class="star-group">
+        <img id="star{{ i + 1 }}" src="/static/star_activated.png" width=50px height=50px>
+    </span>
+    {% endfor %}
+    {% for j in range(rating, 5) %}
+    <span class="star-group">
+        <img id="star{{ j + 1 }}" src="/static/star_deactivated.png" width=50px height=50px>
+    </span>
+    {% endfor %}
+    <br>
+    <textarea class="form-control" type="text" name="review" value="{{ review }}" rows="4"></textarea><br>
+    <input class="btn btn-primary" type="submit" value="Submit Review">
+</form>
+<h2>User Reviews</h2>
+<ul>
+    {% for user_review in reviews %}
+    <li class="review-box">
+        <h4>{{ user_review.username }}</h4>
+        {% for i in range(user_review.rating) %}
+        <img src="/static/star_activated.png" width=30px height=30px>
+        {% endfor %}
+        <p>{{ user_review.review }}</p>
+    </li>
+    {% endfor %}
+</ul>
+<script src="{{ url_for('static', filename='description.js') }}"></script>
+{% endblock %}

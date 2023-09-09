@@ -1,0 +1,57 @@
+{% extends "navigation.html" %} 
+{% block content %}
+<div class="row">
+  <form class="col-sm-4" action="/catalog" method="POST">
+    <h5 class="category-title">Category</h5>
+    {% for filter in filter_list %}
+    <label>
+        <input type="checkbox" name="filter" value="{{ filter }}" />
+        <span>{{ filter }}</span>
+      </label>
+      <br />
+    {% endfor %}
+    
+    <label>
+      <input type="radio" name="sort" value="alphabetical" />
+      <span>A-Z</span>
+    </label>
+    
+    <label>
+      <input type="radio" name="sort" value="reverse alphabetical" />
+      <span>Z-A</span>
+    </label>
+    
+    <label>
+      <input type="radio" name="sort" value="rating" />
+      <span>Rating</span>
+    </label>
+    <br />
+    <input class="btn btn-primary" type="submit" />
+  </form>
+
+  <ul class="row col-sm-8">
+    {% for product in product_list %}
+    <li class="col-sm-4">
+        <a class="thumbnail" href="{{ url_for('descriptionPage', product_id=product.id) }}">
+          <img class="product-img" src="{{ product.image }}" alt="Image could not be loaded."/>
+          <div class="caption">
+            <h4>{{ product.name }}</h4>
+            <div>
+              {% set rounded_rating = product.rating|round(0, 'floor')|int %}
+              {% for i in range(rounded_rating) %}
+              <img
+                src="/static/star_activated.png"
+                width="30px"
+                height="30px"
+              />
+              {% endfor %}
+            </div>
+            <h3 class="price">${{ '%0.2f'|format(product.cost) }}</h3>
+          </div>
+          
+        </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

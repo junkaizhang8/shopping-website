@@ -1,0 +1,57 @@
+{% extends "navigation.html" %} {% block content %}
+<div class="add-product-page">
+  <h1>Add a Product</h1>
+  <form action="/add" method="POST">
+    <label>Image URL</label>
+    <input
+      class="form-control"
+      id="link-input"
+      type="text"
+      name="link"
+      value="{{ link }}"
+    />
+    <br />
+    <label>Product Name</label>
+    <input class="form-control" type="text" name="name" value="{{ name }}" />
+    <br />
+    <label>Cost ($)</label>
+    {% if cost is number %}
+    <input
+      class="form-control"
+      type="text"
+      name="cost"
+      value="{{ '%0.2f'|format(cost) }}"
+    />
+    {% else %}
+    <input class="form-control" type="text" name="cost" value="{{ cost }}" />
+    {% endif %}
+    <p>Cost is limited to ≤ $99,999.99</p>
+    <br />
+    <label>Stock Available</label>
+    <input class="form-control" type="text" name="stock" value="{{ stock }}" />
+    <br />
+    <label>Product Type</label>
+    <select class="form-control" name="type">
+        {% for typing in type_list %}
+        {% if typing == type %}
+        <option value="{{ typing }}" selected>{{ typing }}</option>
+        {% else %}
+        <option value="{{ typing }}">{{ typing }}</option>
+        {% endif %}
+        {% endfor %}
+    </select><br>
+    <label>Description</label>
+    <textarea class="form-control" type="text" name="description" value="{{ description }}" rows="4"></textarea><br>
+    <input class="btn btn-primary" type="submit" name="insert" value="Add Product">
+  </form>
+  <script src="{{ url_for('static', filename='insert_product.js') }}"></script>
+
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <div class="flashed-msg">
+    {% for message in messages %}
+    <div class="alert alert-info">{{ message }}</div>
+    {% endfor %}
+  </div>
+  {% endif %} {% endwith %}
+</div>
+{% endblock %}

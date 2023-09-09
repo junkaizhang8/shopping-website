@@ -1,0 +1,113 @@
+JohnDoe123|12345|Canada
+mr_daffyduck|abcd|Mexico
+David Smith|smithdavid|Ireland
+Ronald Bump|password123|United States
+Beff Jezos|amazonrainforest|United States
+smileyface|sadface|Germany
+spainispain|supersecretpassword|Spain
+IAmSpanish|not$ecretpa$$word|France
+hola amigos|hellothere|Spain
+Reynolds Ryan|testtesttest|Canada
+Jacky Chan|Iamjacky|China
+someperson|qwerty|Vietnam
+Nigerian Prince|MoneyMoneyMoney|Nigeria
+TheInternetIntellectual|abc123|Australia
+ksuM nolE|XAEA12|South Africa
+CoolTeacher|asdfghjkl|Thailand
+
+1|David Smith
+2|JohnDoe123
+3|David Smith
+4|Ronald Bump
+5|David Smith
+6|mr_daffyduck
+7|Beff Jezos
+
+1|Jacky Chan|This apple tastes amazing! Would recommend 10/10.|5
+1|JohnDoe123|this apple sucks! mine better|1
+4|someperson|My kids love playing with this!|4
+5|Reynolds Ryan|It tastes amazing. It's a shame there's only 12 sticks in one pack.|4
+7|Nigerian Prince|why is it so expensive?! I HATE APPLE|1
+2|Nigerian Prince|cheap! i like apples|4
+1|smileyface|not bad :)|3
+3|hola amigos|I LOVE LOVE LOVE PEARS|1
+6|spainispain|The quality is decent|4
+4|IAmSpanish|mi piacciono le macchine|3
+7|Beff Jezos|I bought most of the stock and have it for sale on my website with a 300% markup! Please buy my stock I am broke|3
+7|Ronald Bump|Wish it wasn't so expensive|2
+5|David Smith|It's way too sweet for my teeth.|2
+1|Ronald Bump|Love to support farmers!|5
+2|mr_daffyduck|It tastes like pesticides!|1
+9|IAmSpanish|Super warm and comfy!|5
+
+David Smith|2022-08-18
+Reynolds Ryan|2022-08-23
+TheInternetIntellectual|2022-08-29
+hola amigos|2022-09-06
+smileyface|2022-09-18
+TheInternetIntellectual|2022-10-01
+hola amigos|2022-10-14
+mr_daffyduck|2022-10-29
+Jacky Chan|2022-11-15
+Beff Jezos|2022-12-01
+Ronald Bump|2022-12-05
+Jacky Chan|2022-12-05
+IAmSpanish|2022-12-24
+CoolTeacher|2022-12-26
+spainispain|2023-01-01
+JohnDoe123|2023-01-01
+ksuM nolE|2023-01-06
+Jacky Chan|2022-01-07
+David Smith|2022-01-11
+smileyface|2023-01-20
+IAmSpanish|2023-02-01
+IAmSpanish|2023-02-02
+
+someperson
+Nigerian Prince
+ksuM nolE
+
+1|5|4
+1|3|12
+2|1|8
+2|5|3
+3|4|5
+3|3|21
+3|5|7
+4|6|1
+4|3|15
+5|1|14
+6|4|3
+7|5|3
+7|3|5
+8|1|5
+8|2|5
+9|7|1
+9|7|4
+10|7|700
+11|1|20
+11|7|2
+12|2|12
+12|3|9
+13|4|1
+13|7|1
+14|6|100
+15|6|5
+16|5|3
+17|7|30
+17|1|24
+17|6|45
+17|2|59
+17|3|31
+17|5|22
+17|4|15
+18|1|10
+19|5|3
+20|1|4
+21|9|2
+22|4|1
+23|4|120
+24|2|30
+24|7|1
+25|7|500
+

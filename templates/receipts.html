@@ -1,0 +1,67 @@
+{% extends "navigation.html" %}
+{% block content %}
+<h1>My Orders</h1>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="flashed-msg">
+    {% for message in messages %}
+    <div class="alert alert-info"> {{ message }} </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+{% if receipts %}
+<div>
+    {% for receipt in receipts %}
+    <div class="collapsible row">
+      <h3 class="col-sm-4">Receipt ID: {{ receipt.receipt_id }}</h3>
+      <h3 class="col-sm-4 col-sm-offset-4">Date: {{ receipt.date }}</h3>
+    </div>
+    
+    <div class="order-detail">
+      <table class="table">
+          <tr>
+              <th>Image</th>
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Cost</th>
+              <th>Total Amount</th>
+              <th>Total Cost</th>
+          </tr>
+          {% for purchase in receipt.purchases %}
+          <tr>
+              <td><img src="{{ purchase.image }}" width=200px height=200px alt="Image could not be loaded."></td>
+              <td>
+                  <p>{{ purchase.product_id }}</p>
+              </td>
+              <td>
+                  <p>{{ purchase.name }}</p>
+              </td>
+              <td>
+                  <p>${{ '%0.2f'|format(purchase.cost) }}</p>
+              </td>
+              <td>
+                  <p>{{ purchase.amount }}</p>
+              </td>
+              <td>
+                  <p>${{ '%0.2f'|format(purchase.total_cost) }}</p>
+              </td>
+          </tr>
+          {% endfor %}
+      </table>
+    </div>
+    
+    {% endfor %}
+</div>
+<script>
+  let collapsible = $(".collapsible");
+  collapsible.click(function() {
+    $(this).toggleClass("active");
+    let table = $(this).next();
+    table.slideToggle();
+  });
+</script>
+{% else %}
+<h2>You have no past transaction.</h2>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "navigation.html" %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="flashed-msg">
+    {% for message in messages %}
+    <div class="alert alert-success"> {{ message }} </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+{% if cart %}
+<table class="table">
+    <tr>
+        <th>Image</th>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Cost</th>
+        <th>Total Amount</th>
+        <th>Total Cost</th>
+        <th></th>
+    </tr>
+    {% for item in cart %}
+    <tr>
+        <td><img src="{{ item.image }}" width=200px height=200px alt="Image could not be loaded."></td>
+        <td>
+            <p>{{ item.id }}</p>
+        </td>
+        <td>
+            <p>{{ item.name }}</p>
+        </td>
+        <td>
+            <p>${{ '%0.2f'|format(item.cost) }}</p>
+        </td>
+        <td>
+            <p>{{ item.amount }}</p>
+        </td>
+        <td>
+            <p>${{ '%0.2f'|format(item.total_cost) }}</p>
+        </td>
+        <td>
+            <form action="/remove-cart-item" , method="POST">
+                <input type="hidden" name="id" value="{{ item.id }}">
+                <input class="btn btn-danger square-btn" type="submit" name="remove" value="X">
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<form action="/checkout" method="POST">
+    <input class="btn btn-primary" type="submit" name="Checkout" value="Checkout">
+</form>
+{% else %}
+<h2>Your shopping cart is empty.</h2>
+{% endif %}
+{% endblock %}
